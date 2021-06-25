@@ -1,0 +1,176 @@
+{
+  "name": "Kanal Koruması",
+  "temp": "channel",
+  "event-type": "9",
+  "_id": "lDprg",
+  "actions": [
+    {
+      "info": "0",
+      "find": "Admin Rol ID - Korumadan Muaftır",
+      "storage": "1",
+      "varName": "admin",
+      "name": "Find Role"
+    },
+    {
+      "info": "0",
+      "find": "Log Kanal ID",
+      "storage": "1",
+      "varName": "log",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "type": "12",
+      "before": "",
+      "limit": "1",
+      "storage2": "1",
+      "varName2": "log list",
+      "name": "Store Audit Log List MOD"
+    },
+    {
+      "list": "7",
+      "varName": "log list",
+      "getType": "0",
+      "position": "",
+      "storage": "1",
+      "varName2": "audit log",
+      "name": "Get Item from List"
+    },
+    {
+      "storage": "1",
+      "varName": "audit log",
+      "info": "2",
+      "position": "",
+      "storage2": "1",
+      "varName2": "exec",
+      "name": "Store Audit Log Info MOD"
+    },
+    {
+      "channel": "3",
+      "varName": "channel",
+      "info": "2",
+      "storage": "1",
+      "varName2": "kanal adı",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "3",
+      "varName": "channel",
+      "info": "5",
+      "storage": "1",
+      "varName2": "kanal pozisyon",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "3",
+      "varName": "channel",
+      "info": "10",
+      "storage": "1",
+      "varName2": "katagori ıd",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "3",
+      "varName": "channel",
+      "info": "1",
+      "storage": "1",
+      "varName2": "kanal ID",
+      "name": "Store Channel Info"
+    },
+    {
+      "member": "2",
+      "varName": "exec",
+      "info": "1",
+      "storage": "1",
+      "varName2": "ID",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "exec",
+      "info": "16",
+      "storage": "1",
+      "varName2": "avatar",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "2",
+      "varName": "exec",
+      "role": "3",
+      "varName2": "admin",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member has Role MOD"
+    },
+    {
+      "channelName": "${tempVars(\"kanal adı\")}",
+      "topic": "",
+      "position": "",
+      "storage": "0",
+      "varName": "",
+      "categoryID": "${tempVars(\"katagori ıd\")}",
+      "reason": "",
+      "name": "Create Text Channel"
+    },
+    {
+      "title": "Bir Kanal Silindi !",
+      "author": "",
+      "color": "RANDOM",
+      "url": "",
+      "authorIcon": "",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"avatar\")}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "emb mesaj",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "emb mesaj",
+      "fieldName": "__Kanal Bilgisi__",
+      "message": "**Kanal :** `${tempVars(\"kanal adı\")}`\n**ID :** `${tempVars(\"kanal ID\")}`",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "emb mesaj",
+      "fieldName": "__Kullanıcı Bilgisi__",
+      "message": "**Kullanıcı :** ${tempVars(\"exec\")}\n**ID :** `${tempVars(\"ID\")}`\n\n`*` Silinen kanal başarıyla **tekrar oluşturuldu**!",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "emb mesaj",
+      "message": "DBM House",
+      "footerIcon": "",
+      "name": "Set Embed Footer"
+    },
+    {
+      "storage": "1",
+      "varName": "emb mesaj",
+      "channel": "5",
+      "varName2": "log",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}
